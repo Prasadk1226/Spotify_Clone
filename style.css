@@ -227,6 +227,7 @@ a{
 .card-row{
   display: flex;
   overflow-x: scroll;
+  margin-top: -25px;
 }
 
 .card-row::-webkit-scrollbar {
@@ -235,17 +236,23 @@ a{
 
 .card{
   width: 100%;
-  margin: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  /* background-color: green; */
   /* background-color: white; */
 }
 .card-img{
-  height: 120px;
-  width: 120px;
+  height: 150px;
+  width: 150px;
   border-radius: 150px;
   margin: 10px;
 }
 
 .card-text{
+  margin-left: 10px;
   color: #FFFFFF;
   font-weight: 500;
+}
+.card:hover{
+  background-image: linear-gradient(to top, #21212191 80%,#121212 100%);
 }
