@@ -20,6 +20,7 @@ body{
   display: flex;
   justify-content: space-between;
   z-index: 1;
+  margin-top: -10px;
 }
 .nav-logo{
   padding: 10px 0px;
@@ -109,6 +110,7 @@ body{
   background-color: #121212;
   border: 0px solid;
   border-radius: 10px;
+  
 }
 
 .side-library{
