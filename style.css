@@ -19,6 +19,7 @@ body{
   padding: 8px 10px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 .nav-logo{
   padding: 10px 0px;
@@ -210,6 +211,7 @@ a{
 .body-container{
   display: flex;
   gap: 10px;
+  overflow-x: hidden;
 }
 .right-container{
   width: 73vw;
@@ -217,9 +219,11 @@ a{
   background-image: linear-gradient(to top, #121212 80%,#212121 100%);
 }
 .body-nav-title{
-  padding: 15px;
+  padding: 0px 15px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0px;
 }
 .title-text{
   color: #FFFFFF;
@@ -227,7 +231,7 @@ a{
 .card-row{
   display: flex;
   overflow-x: scroll;
-  margin-top: -25px;
+  margin-top: -5px;
 }
 
 .card-row::-webkit-scrollbar {
@@ -236,10 +240,10 @@ a{
 
 .card{
   width: 100%;
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px 10px;
   border-radius: 10px;
-  /* background-color: green; */
-  /* background-color: white; */
+  cursor: pointer;
 }
 .card-img{
   height: 150px;
@@ -252,7 +256,59 @@ a{
   margin-left: 10px;
   color: #FFFFFF;
   font-weight: 500;
+  padding: 0px;
 }
 .card:hover{
   background-image: linear-gradient(to top, #21212191 80%,#121212 100%);
+}
+.card-text:hover{
+  text-decoration: underline;
+}
+
+
+.body-nav-title2{
+  padding: 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+}
+.title-text2{
+  color: #FFFFFF;
+}
+.card-row2{
+  display: flex;
+  overflow-x: scroll;
+  margin-top: -5px;
+}
+
+.card-row2::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+.card2{
+  width: 100%;
+  /* margin: 5px; */
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card-img2{
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.card-text2{
+  margin-left: 10px;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 0px;
+}
+.card2:hover{
+  background-image: linear-gradient(to top, #21212191 80%,#121212 100%);
+}
+.card-text2:hover{
+  text-decoration: underline;
 }
