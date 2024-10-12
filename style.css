@@ -13,10 +13,10 @@ body{
 
 .nav-container{
   position: sticky;
-  top: 0px;
+  top: -5px;
   height: 65px;
   background-color: #000000;
-  padding: 8px;
+  padding: 8px 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -104,7 +104,7 @@ body{
 
 .side-container{
   height: 88.9vh;
-  width:28vw;
+  width:25vw;
   background-color: #121212;
   border: 0px solid;
   border-radius: 10px;
@@ -134,7 +134,7 @@ body{
   padding: 10px;
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 350px;
   overflow: scroll;
   overflow-x: hidden;
   gap: 10px;
@@ -179,12 +179,73 @@ body{
   padding: 5px;
 }
 .playlist-btn{
-  height: 30px;
-  width: 150px;
+  height: 25px;
+  width: 120px;
+  /* padding: 10px; */
   background-color: #FFFFFF;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
   border: 0px;
   border-radius: 40px;
   cursor: pointer;
+}
+.side-foot-container{
+  padding: 30px 30px;
+  height: 200px;
+  font-size: small;
+  display: flex;
+  align-items: center;
+  /* background-color: antiquewhite; */
+}
+a{
+  text-decoration: none !important;
+  color: #FFFFFF;
+}
+.flex-side-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5px;
+}
+.body-container{
+  display: flex;
+  gap: 10px;
+}
+.right-container{
+  width: 73vw;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #121212 80%,#212121 100%);
+}
+.body-nav-title{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.title-text{
+  color: #FFFFFF;
+}
+.card-row{
+  display: flex;
+  overflow-x: scroll;
+}
+
+.card-row::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+.card{
+  width: 100%;
+  margin: 10px;
+  /* background-color: white; */
+}
+.card-img{
+  height: 120px;
+  width: 120px;
+  border-radius: 150px;
+  margin: 10px;
+}
+
+.card-text{
+  color: #FFFFFF;
+  font-weight: 500;
 }
