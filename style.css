@@ -105,12 +105,12 @@ body{
 }
 
 .side-container{
-  height: 88.9vh;
+  height: 80vh;
   width:25vw;
   background-color: #121212;
   border: 0px solid;
   border-radius: 10px;
-  
+  position: fixed;
 }
 
 .side-library{
@@ -180,6 +180,13 @@ body{
 }
 .playlist-text{
   padding: 5px;
+
+}
+.playlist-text1{
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 400;
+
 }
 .playlist-btn{
   height: 25px;
@@ -213,12 +220,16 @@ a{
 .body-container{
   display: flex;
   gap: 10px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .right-container{
+  margin-left: 25.5vw;
+  padding-left: 10px;
   width: 73vw;
+  height: 80vh;
   border-radius: 10px;
-  background-image: linear-gradient(to top, #121212 80%,#212121 100%);
+  background-image: linear-gradient(to top, #121212 40%,#212121 100%);
+  overflow-y: scroll;
 }
 .body-nav-title{
   padding: 0px 15px;
@@ -226,9 +237,11 @@ a{
   justify-content: space-between;
   position: sticky;
   top: 0px;
+  text-shadow: 0px 0px 15px black;
 }
 .title-text{
   color: #FFFFFF;
+  cursor: pointer;
 }
 .card-row{
   display: flex;
@@ -261,7 +274,8 @@ a{
   padding: 0px;
 }
 .card:hover{
-  background-image: linear-gradient(to top, #21212191 80%,#121212 100%);
+  /* background-image: linear-gradient(to top, #21212191 80%,#121212 100%); */
+  background-color: #212121;
 }
 .card-text:hover{
   text-decoration: underline;
@@ -277,6 +291,7 @@ a{
 }
 .title-text2{
   color: #FFFFFF;
+  cursor: pointer;
 }
 .card-row2{
   display: flex;
@@ -309,8 +324,12 @@ a{
   padding: 0px;
 }
 .card2:hover{
-  background-image: linear-gradient(to top, #21212191 80%,#121212 100%);
+  /* background-image: linear-gradient(to top, #21212191 80%,#121212 100%); */
+  background-color: #212121;
 }
 .card-text2:hover{
   text-decoration: underline;
 }
+
+
+

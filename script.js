@@ -125,5 +125,4 @@ async function fetchAlbumData() {
     }
 }
 
-fetchAlbumData();
-
+// fetchAlbumData();    
