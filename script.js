@@ -70,67 +70,71 @@
 
 // Rapid API not working
 
-const clientId = 'b2caf825b40a43e1842960054b1e0768';  // Replace with your Client ID
-const clientSecret = '6786041f6a15496eb36b294ba436c9d5';  // Replace with your Client Secret
-const authUrl = 'https://accounts.spotify.com/api/token';
+const clientId = "b2caf825b40a43e1842960054b1e0768"; // Replace with your Client ID
+const clientSecret = "6786041f6a15496eb36b294ba436c9d5"; // Replace with your Client Secret
+const authUrl = "https://accounts.spotify.com/api/token";
 
 async function getToken() {
-    try {
-        const response = await fetch(authUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
-            },
-            body: 'grant_type=client_credentials',
-        });
+  try {
+    const response = await fetch(authUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+      },
+      body: "grant_type=client_credentials",
+    });
 
-        // Check if the response is ok (status code 200-299)
-        if (!response.ok) {
-            throw new Error(`Error fetching token: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        return data.access_token;
-    } catch (error) {
-        console.error('Error in getToken:', error);
+    // Check if the response is ok (status code 200-299)
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching token: ${response.status} ${response.statusText}`
+      );
     }
+
+    const data = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error("Error in getToken:", error);
+  }
 }
 
 async function fetchAlbumData() {
-    try {
-        const token = await getToken();
-        if (!token) {
-            throw new Error('Failed to retrieve access token');
-        }
-        
-        const albumUrl = 'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy';
-
-        const response = await fetch(albumUrl, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            }
-        });
-
-        // Check if the response is ok
-        if (!response.ok) {
-            throw new Error(`Error fetching album data: ${response.status} ${response.statusText}`);
-        }
-
-        const albumData = await response.json();
-        console.log(albumData);
-    } catch (error) {
-        console.error('Error in fetchAlbumData:', error);
+  try {
+    const token = await getToken();
+    if (!token) {
+      throw new Error("Failed to retrieve access token");
     }
+
+    const albumUrl = "https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy";
+
+    const response = await fetch(albumUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Check if the response is ok
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching album data: ${response.status} ${response.statusText}`
+      );
+    }
+
+    const albumData = await response.json();
+    console.log(albumData);
+  } catch (error) {
+    console.error("Error in fetchAlbumData:", error);
+  }
 }
 
-fetchAlbumData();    
+fetchAlbumData();
 
 const signUpButtons = document.querySelectorAll(".signUp1");
 
-signUpButtons.forEach(function(btn) {
-  btn.addEventListener("click", function() {
+signUpButtons.forEach(function (btn) {
+  btn.addEventListener("click", function () {
     window.location.href = "./pages/signup.html"; // Replace with the actual URL of your sign-up page
   });
 });
