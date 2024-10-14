@@ -125,4 +125,12 @@ async function fetchAlbumData() {
     }
 }
 
-// fetchAlbumData();    
+fetchAlbumData();    
+
+const signUpButtons = document.querySelectorAll(".signUp1");
+
+signUpButtons.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    window.location.href = "./pages/signup.html"; // Replace with the actual URL of your sign-up page
+  });
+});

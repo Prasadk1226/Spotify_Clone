@@ -223,6 +223,8 @@ a{
   /* overflow-x: hidden; */
 }
 .right-container{
+  position: sticky;
+  top: 30px;
   margin-left: 25.5vw;
   padding-left: 10px;
   width: 73vw;
@@ -331,5 +333,61 @@ a{
   text-decoration: underline;
 }
 
+.right-container-footer{
+  display: flex;
 
+}
+.right-container-contents-footer{
+  color: #ffffff;
+  padding: 10px;
+  width: 20%;
+}
+.right-container-contents-footer h4 a:hover{
+  cursor: pointer;
+  transition: ease-in-out;
+  transition-duration: .08s;
+  color: #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+}
 
+.right-container-contents-footer h4 a{
+  /* font-size: 16px; */
+  color: #868686;
+}
+.bolder{
+  color: #ffffff;
+  font-size: large;
+  font-weight: 600;
+}
+.music-footer{
+  color: #FFFFFF;
+  position: fixed;
+  padding: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 100%;
+  height: 70px;
+  margin-top: 8px;
+  background-image: linear-gradient(to  right,rgb(222, 16, 222),rgb(18, 219, 219));
+}
+.footers-sides h4{
+  font-size: 15px;
+}
+.footers-sides h3{
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+.footer-signUp{
+  margin-top: 20px;
+  height: 60%;
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
