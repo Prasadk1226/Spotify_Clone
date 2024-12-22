@@ -16,23 +16,23 @@
         <div class="section-container">
           <div class="signup-text">
             <h1 class="signuptext">
-              Log in to <br />
+              Log in and <br />
               start listening
             </h1>
           </div>
           <div class="input-container">
-            <form action="" id="myForm">
-              <label for="email" class="email-text">User Email </label> <br />
+            <form action="" id="loginForm">
+              <label for="email" class="email-text">User Email/ UserID </label> <br />
               <input
                 name="email"
                 type="text"
-                id="signinEmail"
+                id="loginEmail"
                 placeholder="name@domain.com"
               />
               <input
                 name="email"
                 type="password"
-                id="signinPassword"
+                id="loginPassword"
                 placeholder="Password"
               />
               <button id="nextBtn" type="submit">Next</button>
@@ -41,15 +41,15 @@
             <div class="social-buttons">
               <button class="socialBtns" id="googleBtn" type="button">
                 <img src="./assets/google.svg" alt="google_Logo" />
-                Sign up with Google
+                Log In with Google
               </button>
               <button class="socialBtns" id="facebookBtn" type="button">
                 <img src="./assets/facebook.svg" alt="google_Logo" />
-                Sign up with facebook
+                Log In with facebook
               </button>
               <button class="socialBtns" id="appleBtn" type="button">
                 <img src="./assets/apple.svg" alt="google_Logo" />
-                Sign up with apple
+                Log In with apple
               </button>
             </div>
           </div>
@@ -58,12 +58,22 @@
       <footer>
         <div class="footerText">
           <h5 class="footer-text">
-            Already have an account?
-            <a id="login-text" href="#">Log in here.</a>
+            Don't have an account?
+            <a id="login-text">Sign Up here.</a>
           </h5>
           <h6 class="footer-text">Created with passion and 💚...</h6>
         </div>
       </footer>
+    </div>
+    <div class="loaderDiv">
+      <div class="loader"></div>
+    </div>
+    <div id="loginMessageModal" class="modal">
+      <div class="modal-content">
+        <div class="close">
+          <div>&times;</div></div>
+        <p id="loginModalMessage"></p>
+      </div>
     </div>
   </body>
   <script src="./login.js"></script>

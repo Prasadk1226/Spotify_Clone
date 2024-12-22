@@ -16,8 +16,8 @@
         <div class="section-container">
           <div class="signup-text">
             <h1 class="signuptext">
-              Sign up to <br />
-              start listening
+              Sign up and <br />
+              feel the MUSIC
             </h1>
           </div>
           <div class="input-container">
@@ -28,6 +28,7 @@
                 type="text"
                 id="signinEmail"
                 placeholder="name@domain.com"
+                required
               />
               <input
                 name="email"
@@ -57,21 +58,26 @@
       </section>
       <footer>
         <!-- Modal Box -->
-<div id="messageModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p id="modalMessage"></p>
-  </div>
-</div>
+        <div id="messageModal" class="modal">
+          <div class="modal-content">
+            <div class="close">
+              <div>&times;</div>
+            </div>
+            <p id="modalMessage"></p>
+          </div>
+        </div>
 
         <div class="footerText">
           <h5 class="footer-text">
             Already have an account?
-            <a id="login-text" href="#">Log in here.</a>
+            <a id="login-text">Log in here.</a>
           </h5>
           <h6 class="footer-text">Created with passion and 💚...</h6>
         </div>
       </footer>
+    </div>
+    <div class="loaderDiv">
+      <div class="loader"></div>
     </div>
   </body>
   <script src="./signup.js"></script>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone - Play Songs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .track {
+        background: #282828;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .track button {
+        background-color: #1db954;
+        border: none;
+        padding: 10px 15px;
+        color: #fff;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .track button:hover {
+        background-color: #1aa34a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Spotify Clone - Play Songs</h1>
+      <div id="track-list"></div>
+    </div>
+
+    <script>
+      const clientId = "b2caf825b40a43e1842960054b1e0768"; // Replace with your Client ID
+const clientSecret = "f3dbf3397d3047418ff300b88e6516fd"; // Replace with your Client Secret
+const authUrl = "https://accounts.spotify.com/api/token";
+
+// Function to get the access token
+async function getToken() {
+  try {
+    const response = await fetch(authUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+      },
+      body: "grant_type=client_credentials",
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching token: ${response.status} ${response.statusText}`
+      );
+    }
+
+    const data = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error("Error in getToken:", error);
+  }
+}
+
+// Call the function and log the token
+getToken().then((token) => {
+  if (token) {
+    console.log("Access Token:", token);
+  } else {
+    console.log("Failed to retrieve the access token.");
+  }
+});
+
+    </script>
+  </body>
+</html>

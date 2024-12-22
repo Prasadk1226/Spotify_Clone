@@ -1,5 +1,5 @@
 const clientId = "b2caf825b40a43e1842960054b1e0768"; // Replace with your Client ID
-const clientSecret = "6786041f6a15496eb36b294ba436c9d5"; // Replace with your Client Secret
+const clientSecret = "f3dbf3397d3047418ff300b88e6516fd"; // Replace with your Client Secret
 const authUrl = "https://accounts.spotify.com/api/token";
 
 // Function to get the access token
@@ -78,20 +78,21 @@ async function appendTracksToHTML(albumId) {
   });
 }
 
-// Call the function with a specific album ID to display the tracks
-appendTracksToHTML('4aawyAB9vmqN3uQ7FjRGTy'); // Example album ID
+async function logArtists() {
+  const tracks = await getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy'); // Use the album ID
 
-// Example response from the API
-const items = response.items; // Array of items
+  tracks.forEach(item => {
+    const artists = item.artists; // Get the 'artists' array from the item
 
-// Loop through the items array to get artist details
-items.forEach(item => {
-  const artists = item.artists; // Get the 'artists' array from the item
-
-  artists.forEach(artist => {
-    console.log(`Artist Name: ${artist.name}`);
-    console.log(`Artist Spotify URL: ${artist.external_urls.spotify}`);
-    console.log(`Artist ID: ${artist.id}`);
-    console.log('---');
+    artists.forEach(artist => {
+      console.log(`Artist Name: ${artist.name}`);
+      console.log(`Artist Spotify URL: ${artist.external_urls.spotify}`);
+      console.log(`Artist ID: ${artist.id}`);
+      console.log('---');
+    });
   });
-});
+}
+
+logArtists(); // Call the async function
+
+

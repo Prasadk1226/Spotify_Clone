@@ -1,5 +1,5 @@
 const clientId = "b2caf825b40a43e1842960054b1e0768"; // Replace with your Client ID
-const clientSecret = "6786041f6a15496eb36b294ba436c9d5"; // Replace with your Client Secret
+const clientSecret = "f3dbf3397d3047418ff300b88e6516fd"; // Replace with your Client Secret
 const authUrl = "https://accounts.spotify.com/api/token";
 
 // Function to get the access token
@@ -70,7 +70,7 @@ async function getAlbumTracks(albumId) {
     }
 
     const data = await response.json();
-    
+
     // Log the API response object
     console.log("API Response:", data); // This logs the response object from the API.
 
@@ -79,7 +79,6 @@ async function getAlbumTracks(albumId) {
     console.error("Error in getAlbumTracks:", error);
   }
 }
-
 
 // Logging track data in the console
 async function logTrackData(albumId) {
@@ -90,12 +89,14 @@ async function logTrackData(albumId) {
     return;
   }
   // Call logTrackData to log album details
-logTrackData("4aawyAB9vmqN3uQ7FjRGTy");
+  logTrackData("4aawyAB9vmqN3uQ7FjRGTy");
 
   // Log each track's details
   tracks.forEach((track) => {
     console.log(`Song Name: ${track.name}`);
-    console.log(`Artists: ${track.artists.map((artist) => artist.name).join(", ")}`);
+    console.log(
+      `Artists: ${track.artists.map((artist) => artist.name).join(", ")}`
+    );
     console.log(`Duration: ${track.duration_ms} ms`);
     console.log(`Preview URL: ${track.preview_url}`);
     console.log(`Spotify URL: ${track.external_urls.spotify}`);
@@ -112,9 +113,6 @@ logTrackData("4aawyAB9vmqN3uQ7FjRGTy");
 
   console.log(songsData);
 }
-
-
-
 
 // Function to append tracks to HTML
 async function appendTracksToHTML(albumId) {
@@ -140,7 +138,10 @@ async function appendTracksToHTML(albumId) {
     // //  "placeholder_image_url";
 
     // Check if album images exist
-    const albumImageUrl = track.album && track.album.images ? track.album.images[1].url : "default_image_url"; // Fallback to default if no image
+    const albumImageUrl =
+      track.album && track.album.images
+        ? track.album.images[0].url
+        : "default_image_url"; // Fallback to default if no image
 
     const img = document.createElement("img");
     img.classList.add("card-img");
@@ -152,7 +153,9 @@ async function appendTracksToHTML(albumId) {
 
     const artistName = document.createElement("p");
     artistName.classList.add("card-text");
-    artistName.textContent = track.artists.map((artist) => artist.name).join(", ");
+    artistName.textContent = track.artists
+      .map((artist) => artist.name)
+      .join(", ");
 
     const playDiv = document.createElement("div");
     playDiv.classList.add("play_div");
@@ -175,44 +178,44 @@ async function appendTracksToHTML(albumId) {
 
     let audio = null;
 
-    // // Play button event
-    // playButton.addEventListener("click", () => {
-    //   if (track.preview_url) {
-    //     // Stop the currently playing track
-    //     if (currentAudio && currentAudio !== audio) {
-    //       currentAudio.pause();
-    //       currentAudio.parentPauseButton.style.display = "none";
-    //       currentAudio.parentPlayButton.style.display = "block";
-    //     }
+    // Play button event
+    playButton.addEventListener("click", () => {
+      if (track.preview_url) {
+        // Stop the currently playing track
+        if (currentAudio && currentAudio !== audio) {
+          currentAudio.pause();
+          currentAudio.parentPauseButton.style.display = "none";
+          currentAudio.parentPlayButton.style.display = "block";
+        }
 
-    //     // If audio is not yet created, create it
-    //     if (!audio) {
-    //       audio = new Audio(track.preview_url);
-    //     }
+        // If audio is not yet created, create it
+        if (!audio) {
+          audio = new Audio(track.preview_url);
+        }
 
-    //     // Play the current track
-    //     audio.play();
-    //     currentAudio = audio;
+        // Play the current track
+        audio.play();
+        currentAudio = audio;
 
-    //     // Associate buttons with the current audio
-    //     currentAudio.parentPlayButton = playButton;
-    //     currentAudio.parentPauseButton = pauseButton;
+        // Associate buttons with the current audio
+        currentAudio.parentPlayButton = playButton;
+        currentAudio.parentPauseButton = pauseButton;
 
-    //     playButton.style.display = "none";
-    //     pauseButton.style.display = "block";
-    //   } else {
-    //     console.log("No preview URL available.");
-    //   }
-    // });
+        playButton.style.display = "none";
+        pauseButton.style.display = "block";
+      } else {
+        console.log("No preview URL available.");
+      }
+    });
 
-    // // Pause button event
-    // pauseButton.addEventListener("click", () => {
-    //   if (audio) {
-    //     audio.pause();
-    //     pauseButton.style.display = "none";
-    //     playButton.style.display = "block";
-    //   }
-    // });
+    // Pause button event
+    pauseButton.addEventListener("click", () => {
+      if (audio) {
+        audio.pause();
+        pauseButton.style.display = "none";
+        playButton.style.display = "block";
+      }
+    });
 
     playButton.addEventListener("click", () => {
       if (track.preview_url) {
@@ -221,47 +224,46 @@ async function appendTracksToHTML(albumId) {
           currentAudio.pause();
           currentAudio.parentPauseButton.style.display = "none";
           currentAudio.parentPlayButton.style.display = "block";
-    
+
           // Remove the 'playing' class from the previous card
-          currentAudio.parentPlayButton.closest(".card").classList.remove("playing");
+          currentAudio.parentPlayButton
+            .closest(".card")
+            .classList.remove("playing");
         }
-    
+
         // If audio is not yet created, create it
         if (!audio) {
           audio = new Audio(track.preview_url);
         }
-    
+
         // Play the current track
         audio.play();
         currentAudio = audio;
-    
+
         // Associate buttons with the current audio
         currentAudio.parentPlayButton = playButton;
         currentAudio.parentPauseButton = pauseButton;
-    
+
         // Add the 'playing' class to the current card
         // playButton.closest(".card").classList.add("playing");
-    
+
         playButton.style.display = "none";
         pauseButton.style.display = "block";
       } else {
         console.log("No preview URL available.");
       }
     });
-    
+
     pauseButton.addEventListener("click", () => {
       if (audio) {
         audio.pause();
         pauseButton.style.display = "block";
         playButton.style.display = "block";
-    
+
         // Remove the 'playing' class when the track is paused
         pauseButton.closest(".card").classList.remove("playing");
       }
     });
-    
-
-
 
     playDiv.appendChild(pauseButton);
     playDiv.appendChild(playButton);
@@ -278,14 +280,27 @@ async function appendTracksToHTML(albumId) {
 // Call the function with a specific album ID
 appendTracksToHTML("4aawyAB9vmqN3uQ7FjRGTy");
 
+// Loader part for redirecting the page.
+let container = document.getElementsByClassName("main-container")[0];
+let loader = document.getElementsByClassName("loaderDiv")[0];
+let buttons = document.querySelectorAll(".signUp1");
 
+loader.style.display = "none";
 
+buttons[0].onclick = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
 
-// /* Show play button on card hover */
-// .card:hover .play_div {
-//   display: block; /* Show the play_div when hovering over the card */
-// }
+  setTimeout(() => {
+    window.location.href = "./pages/signup.html";
+  }, 2500);
+};
 
-// .card.no-hover:hover .play_div {
-//   display: none; /* Disable hover effect */
-// }
+buttons[1].onclick = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = "./pages/login.html";
+  }, 2500);
+};
