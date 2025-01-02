@@ -369,7 +369,7 @@ async function appendTracksToHTML(albumId) {
 
         // If audio is not yet created, create it
         if (!audio) {
-          audio = new Audio(track.external_urls.spotify);
+          audio = new Audio(track.href.preview_url,"Audio playing");
         }
 
         // Play the current track
