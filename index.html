@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="shortcut icon"
       href="./assets/imgs/logo.png"
@@ -18,11 +24,20 @@
         <div class="nav-item nav-logo">
           <a href="#"
             ><img
-              src="./assets/imgs/Spotify_Full_Logo_RGB_Green.png"
+              src="./assets/imgs/logo.png"
               alt="Spotify_Full_Logo_RGB_White"
               title="Spotify_Full_Logo_RGB_White"
-              style="width: 120px"
-          /></a>
+              style="width: 48px"
+              id="mobileLogo"
+          />
+          <img
+          src="./assets/imgs/Spotify_Full_Logo_RGB_Green.png"
+          alt="Spotify_Logo"
+          title="Spotify_Logo"
+          style="width: 120px"
+          id="pcLogo"
+      />
+        </a>
         </div>
         <div class="nav-item nav-search-box">
           <div class="nav-home-btn">
@@ -43,12 +58,14 @@
               />
             </div>
             <div class="search-box-items search-box-div">
-              <input
-                type="text"
-                name="search"
-                id="searchDiv"
-                placeholder="What do you want to listen..."
-              />
+              <form action="">
+                <input
+                  type="text"
+                  name="search"
+                  id="searchDiv"
+                  placeholder="What do you want to listen..."
+                />
+              </form>
             </div>
             <div class="search-box-items browser-box nav-hover">
               <img
@@ -60,12 +77,13 @@
             </div>
           </div>
         </div>
-        <div class="nav-item">
+        <div class="nav-item logSign">
           <a class="signUp1"
             ><button class="nav-btns signUp btn-hover">Sign up</button></a
           >
-          <a class="signUp1" >
-          <button class="nav-btns logIn btn-hover">Log in</button></a>
+          <a class="signUp1">
+            <button class="nav-btns logIn btn-hover">Log in</button></a
+          >
         </div>
       </div>
       <div class="body-container">
@@ -147,310 +165,52 @@
           </div>
         </div>
         <div class="right-container">
-          <div class="card-rows" >
+          <div class="card-rows">
             <div class="body-nav-title">
               <div class="left-title">
                 <h2 class="title-text">Popular Artists</h2>
               </div>
-              <div class="right-title">
+              <div class="right-title showAll">
                 <h5 class="title-text">Show all</h5>
               </div>
             </div>
-            <div class="card-row"></div>
-            
+            <div id="card-row0" class="box"></div>
           </div>
           <div class="card-rows">
             <div class="body-nav-title">
               <div class="left-title">
                 <h2 class="title-text">Popular Albums</h2>
               </div>
-              <div class="right-title2">
-                <h5 class="title-text2">Show all</h5>
+              <div class="right-title showAll">
+                <h5 class="title-text">Show all</h5>
               </div>
             </div>
-            <div class="card-row2" limit="5">
-              <div id="album-container" class="album-container"></div>
-            </div>
+            <div id="card-row" class="box" class="card-container"></div>
+            <div id="results"></div>
           </div>
           <div class="card-rows">
             <div class="body-nav-title">
               <div class="left-title">
-                <h2 class="title-text">Popular Radio</h2>
+                <h2 class="title-text">Popular Artists</h2>
               </div>
-              <div class="right-title2">
-                <h5 class="title-text2">Show all</h5>
-              </div>
-            </div>
-            <div class="card-row2">
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
+              <div class="right-title showAll">
+                <h5 class="title-text">Show all</h5>
               </div>
             </div>
+            <div id="card-row1" class="box"></div>
           </div>
           <div class="card-rows">
             <div class="body-nav-title">
               <div class="left-title">
-                <h2 class="title-text">Spotify Playlists</h2>
+                <h2 class="title-text">Popular Artists</h2>
               </div>
-              <div class="right-title2">
-                <h5 class="title-text2">Show all</h5>
-              </div>
-            </div>
-            <div class="card-row2">
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
+              <div class="right-title showAll">
+                <h5 class="title-text">Show all</h5>
               </div>
             </div>
+            <div id="card-row2" class="box"></div>
           </div>
-          <div class="card-rows">
-            <div class="body-nav-title">
-              <div class="left-title">
-                <h2 class="title-text">Featured Chats</h2>
-              </div>
-              <div class="right-title2">
-                <h5 class="title-text2">Show all</h5>
-              </div>
-            </div>
-            <div class="card-row2">
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e025a30aac46fbabf9fec0bc9ba"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-              <div class="card2">
-                <img
-                  class="card-img2"
-                  src="https://i.scdn.co/image/ab67616d00001e029e2df47b009eba00b8a299be"
-                  alt=""
-                />
-                <p class="card-text2">Album Name</p>
-                <p class="card-text2">Album</p>
-              </div>
-            </div>
-          </div>
+          <div id="resultDiv"></div>
           <div class="right-container-footer">
             <div class="right-container-contents-footer">
               <h3 class="bolder"><a href="#"> Comapany </a></h3>
@@ -482,7 +242,6 @@
             <div class="right-container-contents-footer"></div>
           </div>
         </div>
-        
       </div>
       <div class="music-footer signUp1">
         <div class="footers-sides">
@@ -499,11 +258,9 @@
             </button></a
           >
         </div>
-        
       </div>
-      
     </div>
-<!-- Loader -->
+    <!-- Loader -->
     <div class="loaderDiv">
       <div class="loader"></div>
     </div>
@@ -511,10 +268,11 @@
     <div id="MessageModal" class="modal">
       <div class="modal-content">
         <div class="close">
-          <div>&times;</div></div>
+          <div>&times;</div>
+        </div>
         <p id="ModalMessage"></p>
       </div>
     </div>
   </body>
-  <script src="./script.js"></script>
+  <script src="./script1.js"></script>
 </html>
