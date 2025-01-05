@@ -26,6 +26,10 @@ body {
   padding: 10px 0px;
 }
 
+#mobileLogo{
+  display: none;
+}
+
 .nav-search-box {
   display: flex;
   justify-content: space-between;
@@ -322,7 +326,7 @@ a {
 .card-img {
   height: 150px;
   width: 150px;
-  border: 5px solid #000000;
+  border: 5px solid #32ec7336;
   border-radius: 150px;
   margin: 10px;
 }
@@ -503,3 +507,88 @@ a {
 }
 
   
+@media (max-width:430px){
+
+  /* ::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar 
+  } */
+#mobileLogo{
+  display: block;
+  margin-top: -3px;
+  padding-right: 5px;
+}
+
+#pcLogo{
+  display: none;
+}
+
+.nav-home-btn{
+  display: none;
+}
+
+.logSign{
+  display: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.search-box{
+  width: 290px;
+  display: flex;
+  justify-content: start;
+}
+
+.search-box-div {
+  width: 100%;
+  border-right: 0px solid white;
+  margin-top: 5px;
+}
+.search-icon, .browser-box{
+  display: none;
+}
+
+
+  .right-container {
+    
+    margin-left: 0px;
+    
+    width: 100vw;
+    
+  }
+
+  .card {
+    width: 80%;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+    /* background-color: #02cc00; */
+  }
+
+  .card-img {
+    height: 200px;
+    width: 200px;
+    border: 5px solid #32ec7336;
+    border-radius: 200px;
+    margin: 10px;
+  }
+
+  #card-row,#card-row0, #card-row1,#card-row2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-x: hidden;
+    margin-top: -5px;
+  } 
+
+  .side-container,.side-library, .side-components, .side-foot-container{
+    display: none;
+  }
+}
+

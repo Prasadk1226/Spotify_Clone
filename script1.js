@@ -59,10 +59,10 @@ const showAllButtons = document.querySelectorAll(".showAll"); // Select all "Sho
 showAllButtons.forEach((button) => {
   button.addEventListener("click", () => {
     // Get the closest parent card-rows to the clicked button
-    const cardRow = button.closest(".card-rows"); 
-    
+    const cardRow = button.closest(".card-rows");
+
     // Select the .box within that specific card-row
-    const box = cardRow.querySelector(".box"); 
+    const box = cardRow.querySelector(".box");
 
     // Apply flex-wrap: wrap to that specific .box element
     box.style.flexWrap = box.style.flexWrap === "wrap" ? "nowrap" : "wrap";
@@ -70,16 +70,11 @@ showAllButtons.forEach((button) => {
   });
 });
 
-
-
-
 let currentAudio = "null"; // Tracks the currently playing audio
 
 async function logArtists() {
   const tracks = await getAlbumTracks("7zCODUHkfuRxsUjtuzNqbd"); // Use the album ID
   const cardRow = document.getElementById("card-row1");
-
- 
 
   // tracks.forEach((item) => {
   //   const artists = item.artists; // Get the 'artists' array from the item
@@ -95,8 +90,6 @@ async function logArtists() {
   tracks.forEach((track) => {
     const card = document.createElement("div");
     card.classList.add("card");
-
-    
 
     // Create and add the album image
     const img = document.createElement("img");
@@ -201,7 +194,6 @@ async function logArtists() {
   });
 }
 
-
 // Function to fetch albums for the artist
 async function getArtistData(artistId) {
   const token = await getToken(); // Get the access token
@@ -233,10 +225,6 @@ async function getArtistData(artistId) {
   }
 }
 
-
-
-
-
 // Example usage
 
 (async () => {
@@ -246,6 +234,82 @@ async function getArtistData(artistId) {
   try {
     const artistData = await getArtistData(artistId);
     console.log("Artist Data:", artistData);
+
+    // // const searchDiv = document.getElementById("searchDiv")
+    // // searchDiv.value.toLowerCase().includes(artist.name)
+    
+    // const searchDiv = document.getElementById("searchDiv");
+    // const resultDiv = document.getElementById("resultDiv");
+    
+    // // Function to display cards in the resultDiv
+    // function displayCards(data) {
+    //   resultDiv.innerHTML = ""; // Clear all elements in resultDiv
+    
+    //   // Create a container to hold the cards
+    //   const cardContainer = document.createElement("div");
+    //   cardContainer.classList.add("box"); // Optional class for styling
+    
+    //   data.forEach((track) => {
+    //     const card = document.createElement("div");
+    //     card.classList.add("card");
+    
+    //     // Create and add the album image
+    //     const img = document.createElement("img");
+    //     img.classList.add("card-img");
+    //     img.src = track.images[1].url;
+    //     card.appendChild(img);
+    
+    //     // Create and add the track name
+    //     const trackName = document.createElement("p");
+    //     trackName.classList.add("card-text");
+    //     trackName.textContent = track.name || "Unknown Track";
+    //     card.appendChild(trackName);
+    
+    //     // Create and add the track duration
+    //     const trackDuration = document.createElement("p");
+    //     trackDuration.classList.add("card-text");
+    //     const duration = track.duration_ms
+    //       ? `Duration: ${(track.duration_ms / 1000 / 60).toFixed(2)} minutes`
+    //       : "Unknown Duration";
+    //     trackDuration.textContent = duration;
+    //     card.appendChild(trackDuration);
+    
+    //     // Create and add the artist names
+    //     const artistName = document.createElement("p");
+    //     artistName.classList.add("card-text");
+    //     artistName.textContent =
+    //       track.artists && track.artists.length > 0
+    //         ? `Artist: ${track.artists.map((artist) => artist.name).join(", ")}`
+    //         : "Unknown Artist";
+    //     card.appendChild(artistName);
+    
+    //     // Append the card to the container
+    //     cardContainer.appendChild(card);
+    //   });
+    
+    //   // Append the card container to the resultDiv
+    //   resultDiv.appendChild(cardContainer);
+    // }
+    
+    // // Add event listener for search input
+    // searchDiv.addEventListener("input", () => {
+    //   const query = searchDiv.value.toLowerCase();
+    //   const filteredData = artistData.filter(
+    //     (track) =>
+    //       track.name.toLowerCase().includes(query) ||
+    //       track.artists.some((artist) =>
+    //         artist.name.toLowerCase().includes(query)
+    //       )
+    //   );
+    //   displayCards(filteredData);
+    // });
+    
+    // // Initial display of all cards
+    // displayCards(artistData);
+    
+    
+    
+    
 
     const albumsData = await getAlbumTracks(albumId);
     console.log("Albums Data:", albumsData);
@@ -269,15 +333,15 @@ async function getArtistData(artistId) {
       card.appendChild(trackName);
 
       // Create and add the track duration
-      const trackDuration = document.createElement("p");
-      trackDuration.classList.add("card-text");
-      const duration = track.duration_ms
-        ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
-            2
-          )} minutes`
-        : "Unknown Duration";
-      trackDuration.textContent = duration;
-      card.appendChild(trackDuration);
+      // const trackDuration = document.createElement("p");
+      // trackDuration.classList.add("card-text");
+      // const duration = track.duration_ms
+      //   ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
+      //       2
+      //     )} minutes`
+      //   : "Unknown Duration";
+      // trackDuration.textContent = duration;
+      // card.appendChild(trackDuration);
 
       // Create and add the artist names
       const artistName = document.createElement("p");
@@ -315,7 +379,7 @@ async function getArtistData(artistId) {
 
       playButton.addEventListener("click", () => {
         if (track.preview_url) {
-          console.log(track)
+          console.log(track);
           // Stop the currently playing track
           if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
@@ -388,7 +452,6 @@ logArtists(); // Call the async function
 logArtists(); // Call the async function
 logArtists(); // Call the async function
 
-
 (async () => {
   const artistId = "62k5LKMhymqlDNo2DWOvvv"; // Example Artist ID (The Weeknd)
   // const albumId = "12INlMsFtBjyehNnawBv36"; // Example Album ID (After Hours)
@@ -418,16 +481,16 @@ logArtists(); // Call the async function
       trackName.textContent = track.name || "Unknown Track";
       card.appendChild(trackName);
 
-      // Create and add the track duration
-      const trackDuration = document.createElement("p");
-      trackDuration.classList.add("card-text");
-      const duration = track.duration_ms
-        ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
-            2
-          )} minutes`
-        : "Unknown Duration";
-      trackDuration.textContent = duration;
-      card.appendChild(trackDuration);
+      // // Create and add the track duration
+      // const trackDuration = document.createElement("p");
+      // trackDuration.classList.add("card-text");
+      // const duration = track.duration_ms
+      //   ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
+      //       2
+      //     )} minutes`
+      //   : "Unknown Duration";
+      // trackDuration.textContent = duration;
+      // card.appendChild(trackDuration);
 
       // Create and add the artist names
       const artistName = document.createElement("p");
@@ -465,7 +528,7 @@ logArtists(); // Call the async function
 
       playButton.addEventListener("click", () => {
         if (track.preview_url) {
-          console.log(track)
+          console.log(track);
           // Stop the currently playing track
           if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
@@ -565,16 +628,16 @@ logArtists(); // Call the async function
       trackName.textContent = track.name || "Unknown Track";
       card.appendChild(trackName);
 
-      // Create and add the track duration
-      const trackDuration = document.createElement("p");
-      trackDuration.classList.add("card-text");
-      const duration = track.duration_ms
-        ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
-            2
-          )} minutes`
-        : "Unknown Duration";
-      trackDuration.textContent = duration;
-      card.appendChild(trackDuration);
+      // // Create and add the track duration
+      // const trackDuration = document.createElement("p");
+      // trackDuration.classList.add("card-text");
+      // const duration = track.duration_ms
+      //   ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
+      //       2
+      //     )} minutes`
+      //   : "Unknown Duration";
+      // trackDuration.textContent = duration;
+      // card.appendChild(trackDuration);
 
       // Create and add the artist names
       const artistName = document.createElement("p");
@@ -612,7 +675,7 @@ logArtists(); // Call the async function
 
       playButton.addEventListener("click", () => {
         if (track.preview_url) {
-          console.log(track)
+          console.log(track);
           // Stop the currently playing track
           if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
@@ -712,16 +775,16 @@ logArtists(); // Call the async function
       trackName.textContent = track.name || "Unknown Track";
       card.appendChild(trackName);
 
-      // Create and add the track duration
-      const trackDuration = document.createElement("p");
-      trackDuration.classList.add("card-text");
-      const duration = track.duration_ms
-        ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
-            2
-          )} minutes`
-        : "Unknown Duration";
-      trackDuration.textContent = duration;
-      card.appendChild(trackDuration);
+      // // Create and add the track duration
+      // const trackDuration = document.createElement("p");
+      // trackDuration.classList.add("card-text");
+      // const duration = track.duration_ms
+      //   ? `Track ${index + 1}: ${(track.duration_ms / 1000 / 60).toFixed(
+      //       2
+      //     )} minutes`
+      //   : "Unknown Duration";
+      // trackDuration.textContent = duration;
+      // card.appendChild(trackDuration);
 
       // Create and add the artist names
       const artistName = document.createElement("p");
@@ -759,7 +822,7 @@ logArtists(); // Call the async function
 
       playButton.addEventListener("click", () => {
         if (track.preview_url) {
-          console.log(track)
+          console.log(track);
           // Stop the currently playing track
           if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
@@ -828,14 +891,10 @@ logArtists(); // Call the async function
   }
 })();
 
-
-
-
 async function fetchTopTracks(artistId) {
-  const token = await getToken(); 
+  const token = await getToken();
   const apiUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`;
-console.log(artistId)
-
+  console.log(artistId);
 
   try {
     const response = await fetch(apiUrl, {
@@ -916,7 +975,7 @@ async function logArtists() {
 
     playButton.addEventListener("click", () => {
       if (track.preview_url) {
-        console.log(track)
+        console.log(track);
         // Stop the currently playing track
         if (currentAudio && currentAudio !== audio) {
           currentAudio.pause();
@@ -963,8 +1022,41 @@ async function logArtists() {
 }
 
 logArtists(); // Call the async function
-logArtists()
-logArtists()
+logArtists();
+logArtists();
+
+// Add search functionality
+document.getElementById("searchDiv").addEventListener("input", (event) => {
+  const searchQuery = event.target.value.toLowerCase(); // Get the search query in lowercase
+  const cards = document.querySelectorAll(".card"); // Select all the cards
+  const result = document.querySelector(".card-rows"); // Container for all cards
+
+  let hasResults = false; // Flag to check if any card matches the search query
+
+  cards.forEach((card) => {
+    // Get the track or album name text
+    const trackName = card.querySelector(".card-text").textContent.toLowerCase();
+    const artistName = card.querySelector(".card-text:last-of-type").textContent.toLowerCase();
+
+    // Check if the track/album name or artist name includes the search query
+    if (trackName.includes(searchQuery) || artistName.includes(searchQuery)) {
+      card.style.display = "block"; // Show the card if it matches
+      hasResults = true; // Set the flag to true if there is a match
+    } else {
+      card.style.display = "none"; // Hide the card if it doesn't match
+    }
+  });
+
+  // If no results are found, display a message
+  if (!hasResults) {
+    result.innerHTML = `<h1>No Songs Found</h1>`;
+  } else {
+    // If results are found, make sure to remove the "No Songs Found" message
+    result.innerHTML = ""; // Clear the message if there are matches
+  }
+});
+
+
 
 // AlbumIds
 // 0: "35dut3ICqF3NEDkjxfzJJ1"
@@ -995,7 +1087,7 @@ logArtists()
 // 4: '6tbjWDEIzxoDsBA1FuhfPW'
 // 5: "3ZJxEmjYZd5VOqZ8o3aXiL"
 // 6: "4xPQFgDA5M2xa0ZGo5iIsv"
-// 7: "4Gso3d4CscCijv0lmajZWs" 
+// 7: "4Gso3d4CscCijv0lmajZWs"
 // 8: "4nDoRrQiYLoBzwC5BhVJzF"
 // 9: "62k5LKMhymqlDNo2DWOvvv"
 // 10: "6Xgp2XMz1fhVYe7i6yNAax"
