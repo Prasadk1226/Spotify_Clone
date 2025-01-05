@@ -237,16 +237,64 @@ a {
   position: sticky;
   top: 0px;
   text-shadow: 0px 0px 15px black;
+  height: 50px;
 }
 .title-text {
   color: #ffffff;
   cursor: pointer;
 }
-#card-row1 {
+.showAll h5 {
+  background: linear-gradient(to bottom right, #484c4895, #021a0223); /* Set the background color for normal state */
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
+  padding: 10px 5px 10px 5px;
+  cursor: pointer;
+  transition: background-color 1s ease-in-out, transform 500ms linear 100ms;
+}
+
+.showAll h5:hover {
+  background: linear-gradient(to bottom right, #02cc00, #03180364);
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  border-radius: 20px; /* Ensure border-radius remains on hover */
+}
+
+
+
+
+.box{
   /* background-color: #04ff00; */
   /* height: 100px; */
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  overflow-x: scroll;
+  margin-top: -5px;
+}
+
+
+#card-row {
+    /* background-color: #04ff00; */
+    /* height: 100px; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    overflow-x: scroll;
+    margin-top: -5px;
+  }
+
+  #card-row0 {
+    /* background-color: #04ff00; */
+    /* height: 100px; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    overflow-x: scroll;
+    margin-top: -5px;
+  }
+
+  #card-row1 {
+  /* background-color: #04ff00; */
+  /* height: 100px; */
+  display: flex;
+  /* flex-wrap: wrap; */
   overflow-x: scroll;
   margin-top: -5px;
 }
@@ -255,7 +303,7 @@ a {
     /* background-color: #04ff00; */
     /* height: 100px; */
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     overflow-x: scroll;
     margin-top: -5px;
   }
@@ -274,7 +322,7 @@ a {
 .card-img {
   height: 150px;
   width: 150px;
-  border: 5px solid #00fff2;
+  border: 5px solid #000000;
   border-radius: 150px;
   margin: 10px;
 }
@@ -365,7 +413,7 @@ a {
 /* Play div hidden by default */
 .play_div {
   margin-left: 130px;
-  margin-top: -100px;
+  margin-top: -130px;
   transform: translate(-50%, -50%);
   transition: transform 0.3s linear, opacity 1s linear;
   display: none;
@@ -453,3 +501,5 @@ a {
     background-size: 20% 50%, 20% 50%, 20% 50%;
   }
 }
+
+  
