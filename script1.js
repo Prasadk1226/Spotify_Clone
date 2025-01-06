@@ -1033,13 +1033,16 @@ document.getElementById("searchDiv").addEventListener("input", (event) => {
 
   let hasResults = false; // Flag to check if any card matches the search query
 
+  // Convert search query into a regex pattern for partial matching
+  const regex = new RegExp(searchQuery, "i"); // 'i' makes it case-insensitive
+
   cards.forEach((card) => {
     // Get the track or album name text
     const trackName = card.querySelector(".card-text").textContent.toLowerCase();
     const artistName = card.querySelector(".card-text:last-of-type").textContent.toLowerCase();
 
-    // Check if the track/album name or artist name includes the search query
-    if (trackName.includes(searchQuery) || artistName.includes(searchQuery)) {
+    // Check if the track/album name or artist name matches the regex
+    if (regex.test(trackName) || regex.test(artistName)) {
       card.style.display = "block"; // Show the card if it matches
       hasResults = true; // Set the flag to true if there is a match
     } else {
@@ -1049,7 +1052,7 @@ document.getElementById("searchDiv").addEventListener("input", (event) => {
 
   // Check if a "No Songs Found" message already exists
   let noResultMessage = document.querySelector(".no-results-message");
-  
+
   if (!hasResults) {
     // Display the message if no results are found
     if (!noResultMessage) {
@@ -1065,6 +1068,7 @@ document.getElementById("searchDiv").addEventListener("input", (event) => {
     }
   }
 });
+
 
 // footer in html
 document.querySelectorAll(".right-container-footer details").forEach((details) => {
