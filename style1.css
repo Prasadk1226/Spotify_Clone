@@ -26,7 +26,7 @@ body {
   padding: 10px 0px;
 }
 
-#mobileLogo{
+#mobileLogo {
   display: none;
 }
 
@@ -248,7 +248,11 @@ a {
   cursor: pointer;
 }
 .showAll h5 {
-  background: linear-gradient(to bottom right, #484c4895, #021a0223); /* Set the background color for normal state */
+  background: linear-gradient(
+    to bottom right,
+    #484c4895,
+    #021a0223
+  ); /* Set the background color for normal state */
   border-radius: 10px;
   width: 80px;
   text-align: center;
@@ -263,10 +267,7 @@ a {
   border-radius: 20px; /* Ensure border-radius remains on hover */
 }
 
-
-
-
-.box{
+.box {
   /* background-color: #04ff00; */
   /* height: 100px; */
   display: flex;
@@ -275,26 +276,25 @@ a {
   margin-top: -5px;
 }
 
-
 #card-row {
-    /* background-color: #04ff00; */
-    /* height: 100px; */
-    display: flex;
-    /* flex-wrap: wrap; */
-    overflow-x: scroll;
-    margin-top: -5px;
-  }
+  /* background-color: #04ff00; */
+  /* height: 100px; */
+  display: flex;
+  /* flex-wrap: wrap; */
+  overflow-x: scroll;
+  margin-top: -5px;
+}
 
-  #card-row0 {
-    /* background-color: #04ff00; */
-    /* height: 100px; */
-    display: flex;
-    /* flex-wrap: wrap; */
-    overflow-x: scroll;
-    margin-top: -5px;
-  }
+#card-row0 {
+  /* background-color: #04ff00; */
+  /* height: 100px; */
+  display: flex;
+  /* flex-wrap: wrap; */
+  overflow-x: scroll;
+  margin-top: -5px;
+}
 
-  #card-row1 {
+#card-row1 {
   /* background-color: #04ff00; */
   /* height: 100px; */
   display: flex;
@@ -304,13 +304,13 @@ a {
 }
 
 #card-row2 {
-    /* background-color: #04ff00; */
-    /* height: 100px; */
-    display: flex;
-    /* flex-wrap: wrap; */
-    overflow-x: scroll;
-    margin-top: -5px;
-  }
+  /* background-color: #04ff00; */
+  /* height: 100px; */
+  display: flex;
+  /* flex-wrap: wrap; */
+  overflow-x: scroll;
+  margin-top: -5px;
+}
 
 .card-row::-webkit-scrollbar {
   display: none; /* Hides the scrollbar */
@@ -506,89 +506,99 @@ a {
   }
 }
 
-  
-@media (max-width:500px){
+@media (max-width: 500px) {
+  ::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+  }
+  #mobileLogo {
+    display: block;
+    margin-top: -3px;
+    padding-right: 5px;
+  }
 
-  /* ::-webkit-scrollbar {
-    display: none; /* Hides the scrollbar 
-  } */
-#mobileLogo{
-  display: block;
-  margin-top: -3px;
-  padding-right: 5px;
-}
+  #pcLogo {
+    display: none;
+  }
 
-#pcLogo{
-  display: none;
-}
+  .nav-home-btn {
+    display: none;
+  }
 
-.nav-home-btn{
-  display: none;
-}
+  .logSign {
+    display: none;
+  }
 
-.logSign{
-  display: none;
-}
+  .nav-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .search-box {
+    width: 290px;
+    display: flex;
+    justify-content: start;
+  }
 
-.nav-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-.search-box{
-  width: 290px;
-  display: flex;
-  justify-content: start;
-}
-
-.search-box-div {
-  width: 100%;
-  border-right: 0px solid white;
-  margin-top: 5px;
-}
-.search-icon, .browser-box{
-  display: none;
-}
-
+  .search-box-div {
+    width: 100%;
+    border-right: 0px solid white;
+    margin-top: 5px;
+  }
+  .search-icon,
+  .browser-box {
+    display: none;
+  }
 
   .right-container {
-    
     margin-left: 0px;
-    
+
     width: 100vw;
-    
   }
 
   .card {
-    width: 80%;
+    width: 100%;
     margin: 5px;
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     /* text-align: center; */
     /* background-color: #02cc00; */
   }
 
   .card-img {
-    height: 200px;
-    width: 200px;
-    border: 5px solid #32ec7336;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #32ec7336;
     border-radius: 200px;
     margin: 10px;
   }
 
-  #card-row,#card-row0, #card-row1,#card-row2 {
+  #card-row,
+  #card-row0,
+  #card-row1,
+  #card-row2 {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     overflow-x: hidden;
     margin-top: -5px;
-  } 
+  }
 
-  .side-container,.side-library, .side-components, .side-foot-container{
+  .play_div {
+    /* margin-left: 130px; */
+    margin-top: 30px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s linear, opacity 1s linear;
+    display: none;
+    border-radius: 50%;
+  }
+
+  .side-container,
+  .side-library,
+  .side-components,
+  .side-foot-container {
     display: none;
   }
 }
-
