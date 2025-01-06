@@ -1047,14 +1047,91 @@ document.getElementById("searchDiv").addEventListener("input", (event) => {
     }
   });
 
-  // If no results are found, display a message
+  // Check if a "No Songs Found" message already exists
+  let noResultMessage = document.querySelector(".no-results-message");
+  
   if (!hasResults) {
-    result.innerHTML = `<h1>No Songs Found</h1>`;
+    // Display the message if no results are found
+    if (!noResultMessage) {
+      noResultMessage = document.createElement("h1");
+      noResultMessage.className = "no-results-message";
+      noResultMessage.textContent = "No Songs Found";
+      result.appendChild(noResultMessage);
+    }
   } else {
-    // If results are found, make sure to remove the "No Songs Found" message
-    result.innerHTML = ""; // Clear the message if there are matches
+    // Remove the message if there are matches
+    if (noResultMessage) {
+      noResultMessage.remove();
+    }
   }
 });
+
+// footer in html
+document.querySelectorAll(".right-container-footer details").forEach((details) => {
+  details.addEventListener("click", () => {
+    document.querySelectorAll(".right-container-footer details").forEach((other) => {
+      if (other !== details) {
+        other.removeAttribute("open");
+      }
+    });
+  });
+});
+
+
+// Loader part for redirecting the page.
+let container = document.getElementsByClassName("main-container")[0];
+let loader = document.getElementsByClassName("loaderDiv")[0];
+let buttons = document.querySelectorAll(".signUp1");
+
+loader.style.display = "none";
+
+buttons[0].onclick = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = "./pages/signup.html";
+  }, 2500);
+};
+
+buttons[1].onclick = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = "./pages/login.html";
+  }, 2500);
+};
+
+
+// modal when clicked
+// let container = document.getElementsByClassName("main-container")[0];
+let MessageModal = document.getElementById("MessageModal");
+let ModalMessage = document.getElementById("ModalMessage");
+let closeLoginModal = document.getElementsByClassName("close")[0];
+container.style.zIndex="999999"
+
+// Show the modal when the container is clicked
+container.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  ModalMessage.innerHTML = "Please login to listen to music";
+  MessageModal.style.display = "block";
+});
+
+// Close the modal when the 'x' is clicked
+closeLoginModal.onclick = function () {
+  MessageModal.style.display = "none";
+};
+
+// Close the modal if the user clicks outside of it
+window.onclick = function (event) {
+  if (event.target === MessageModal) { // Fixed: Corrected the variable name
+    MessageModal.style.display = "none";
+  }
+};
+
+
 
 
 
