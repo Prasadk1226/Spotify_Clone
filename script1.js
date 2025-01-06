@@ -1103,6 +1103,15 @@ buttons[1].onclick = () => {
   }, 2500);
 };
 
+buttons[2].onclick = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = "./pages/signup.html";
+  }, 2500);
+};
+
 
 // modal when clicked
 // let container = document.getElementsByClassName("main-container")[0];
