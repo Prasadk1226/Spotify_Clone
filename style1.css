@@ -627,7 +627,9 @@ a {
     padding: 10px;
   }
   
-  
+  .footers-sides h3{
+    display: none;
+  }
   
  
 }
