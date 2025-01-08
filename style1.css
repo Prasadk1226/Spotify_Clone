@@ -149,7 +149,8 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
+  height: 2px;
 }
 
 /* Track */
@@ -342,6 +343,7 @@ a {
   margin-left: 10px;
   color: #ffffff;
   font-weight: 500;
+  font-size: 15px;
   padding: 0px;
 }
 
