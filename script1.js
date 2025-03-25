@@ -87,111 +87,111 @@ async function logArtists() {
   //   });
   // });
 
-  tracks.forEach((track) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
+  // tracks.forEach((track) => {
+  //   const card = document.createElement("div");
+  //   card.classList.add("card");
 
-    // Create and add the album image
-    const img = document.createElement("img");
-    img.classList.add("card-img");
-    img.src =
-      track.album && track.album.images && track.album.images.length > 0
-        ? track.album.images[1].url
-        : "https://cdn.vectorstock.com/i/1000v/29/27/note-music-colorful-rainbow-logo-icon-illus-vector-28932927.jpg"; // Fallback image if none exists
-    card.appendChild(img);
+  //   // Create and add the album image
+  //   const img = document.createElement("img");
+  //   img.classList.add("card-img");
+  //   img.src =
+  //     track.album && track.album.images && track.album.images.length > 0
+  //       ? track.album.images[1].url
+  //       : "https://cdn.vectorstock.com/i/1000v/29/27/note-music-colorful-rainbow-logo-icon-illus-vector-28932927.jpg"; // Fallback image if none exists
+  //   card.appendChild(img);
 
-    // Create and add the track name
-    const trackName = document.createElement("p");
-    trackName.classList.add("card-text");
-    trackName.textContent = track.name || "Unknown Track";
-    card.appendChild(trackName);
+  //   // Create and add the track name
+  //   const trackName = document.createElement("p");
+  //   trackName.classList.add("card-text");
+  //   trackName.textContent = track.name || "Unknown Track";
+  //   card.appendChild(trackName);
 
-    // Create and add the artist names
-    const artistName = document.createElement("p");
-    artistName.classList.add("card-text");
-    artistName.textContent =
-      track.artists && track.artists.length > 0
-        ? track.artists.map((artist) => artist.name).join(", ")
-        : "Unknown Artist";
-    card.appendChild(artistName);
+  //   // Create and add the artist names
+  //   const artistName = document.createElement("p");
+  //   artistName.classList.add("card-text");
+  //   artistName.textContent =
+  //     track.artists && track.artists.length > 0
+  //       ? track.artists.map((artist) => artist.name).join(", ")
+  //       : "Unknown Artist";
+  //   card.appendChild(artistName);
 
-    const playDiv = document.createElement("div");
-    playDiv.classList.add("play_div");
+  //   const playDiv = document.createElement("div");
+  //   playDiv.classList.add("play_div");
 
-    const playButton = document.createElement("div");
-    playButton.classList.add("play_button");
-    const playIcon = document.createElement("i");
-    playIcon.classList.add("fa-solid", "fa-circle-play");
-    playIcon.style.color = "#32ec73";
-    playButton.style.zIndex = "99999";
-    playButton.appendChild(playIcon);
+  //   const playButton = document.createElement("div");
+  //   playButton.classList.add("play_button");
+  //   const playIcon = document.createElement("i");
+  //   playIcon.classList.add("fa-solid", "fa-circle-play");
+  //   playIcon.style.color = "#32ec73";
+  //   playButton.style.zIndex = "99999";
+  //   playButton.appendChild(playIcon);
 
-    const pauseButton = document.createElement("div");
-    pauseButton.classList.add("pause_button");
-    const pauseIcon = document.createElement("i");
-    pauseIcon.classList.add("fa-solid", "fa-circle-pause");
-    pauseIcon.style.color = "#32ec73";
-    pauseButton.appendChild(pauseIcon);
+  //   const pauseButton = document.createElement("div");
+  //   pauseButton.classList.add("pause_button");
+  //   const pauseIcon = document.createElement("i");
+  //   pauseIcon.classList.add("fa-solid", "fa-circle-pause");
+  //   pauseIcon.style.color = "#32ec73";
+  //   pauseButton.appendChild(pauseIcon);
 
-    pauseButton.style.display = "none";
+  //   pauseButton.style.display = "none";
 
-    let audio = "";
+  //   let audio = "";
 
-    playButton.addEventListener("click", () => {
-      if (track) {
-        // Stop the currently playing track
-        if (currentAudio && currentAudio !== audio) {
-          currentAudio.pause();
-          currentAudio.parentPauseButton.style.display = "none";
-          currentAudio.parentPlayButton.style.display = "block";
+  //   playButton.addEventListener("click", () => {
+  //     if (track) {
+  //       // Stop the currently playing track
+  //       if (currentAudio && currentAudio !== audio) {
+  //         currentAudio.pause();
+  //         currentAudio.parentPauseButton.style.display = "none";
+  //         currentAudio.parentPlayButton.style.display = "block";
 
-          // Remove the 'playing' class from the previous card
-          currentAudio.parentPlayButton
-            .closest(".card")
-            .classList.remove("playing");
-        }
+  //         // Remove the 'playing' class from the previous card
+  //         currentAudio.parentPlayButton
+  //           .closest(".card")
+  //           .classList.remove("playing");
+  //       }
 
-        // If audio is not yet created, create it
-        if (!audio) {
-          audio = new Audio(tracks.href);
-        }
+  //       // If audio is not yet created, create it
+  //       if (!audio) {
+  //         audio = new Audio(tracks.href);
+  //       }
 
-        // Play the current track
-        audio.play();
-        currentAudio = audio;
+  //       // Play the current track
+  //       audio.play();
+  //       currentAudio = audio;
 
-        // Associate buttons with the current audio
-        currentAudio.parentPlayButton = playButton;
-        currentAudio.parentPauseButton = pauseButton;
+  //       // Associate buttons with the current audio
+  //       currentAudio.parentPlayButton = playButton;
+  //       currentAudio.parentPauseButton = pauseButton;
 
-        // Add the 'playing' class to the current card
-        // playButton.closest(".card").classList.add("playing");
+  //       // Add the 'playing' class to the current card
+  //       // playButton.closest(".card").classList.add("playing");
 
-        playButton.style.display = "none";
-        pauseButton.style.display = "block";
-      } else {
-        console.log("No preview URL available.");
-      }
-    });
+  //       playButton.style.display = "none";
+  //       pauseButton.style.display = "block";
+  //     } else {
+  //       console.log("No preview URL available.");
+  //     }
+  //   });
 
-    pauseButton.addEventListener("click", () => {
-      if (audio) {
-        audio.pause();
-        pauseButton.style.display = "none";
-        playButton.style.display = "block";
+  //   pauseButton.addEventListener("click", () => {
+  //     if (audio) {
+  //       audio.pause();
+  //       pauseButton.style.display = "none";
+  //       playButton.style.display = "block";
 
-        // Remove the 'playing' class when the track is paused
-        pauseButton.closest(".card").classList.remove("playing");
-      }
-    });
-    card.appendChild(playDiv);
+  //       // Remove the 'playing' class when the track is paused
+  //       pauseButton.closest(".card").classList.remove("playing");
+  //     }
+  //   });
+  //   card.appendChild(playDiv);
 
-    playDiv.appendChild(pauseButton);
-    playDiv.appendChild(playButton);
+  //   playDiv.appendChild(pauseButton);
+  //   playDiv.appendChild(playButton);
 
-    // Append the card to the card row
-    cardRow.appendChild(card);
-  });
+  //   // Append the card to the card row
+  //   cardRow.appendChild(card);
+  // });
 }
 
 // Function to fetch albums for the artist
@@ -704,8 +704,8 @@ logArtists(); // Call the async function
           // Add the 'playing' class to the current card
           // playButton.closest(".card").classList.add("playing");
 
-          playButton.style.display = "none";
-          pauseButton.style.display = "block";
+          playButton.style.display = "block";
+          pauseButton.style.display = "none";
         } else {
           console.log("No preview URL available.");
         }
@@ -1143,6 +1143,73 @@ window.onclick = function (event) {
     MessageModal.style.display = "none";
   }
 };
+
+// Function to create a new playlist
+function createNewPlaylist(index) {
+  // Create a new playlist element
+  let newPlaylist = document.createElement("div");
+  newPlaylist.classList.add("create-playlist");
+
+  let playlistText = document.createElement("div");
+  playlistText.classList.add("playlist-text");
+  let spanText = document.createElement("span");
+  spanText.textContent = `New Playlist ${index}`;
+  playlistText.appendChild(spanText);
+
+  let playlistButton = document.createElement("button");
+  playlistButton.classList.add("playlist-btn", "btn-hover");
+  playlistButton.type = "button";
+  playlistButton.textContent = "Create playlist";
+
+  // Create a delete button
+  let deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-btn", "btn-hover");
+  deleteButton.type = "button";
+  deleteButton.textContent = "Delete";
+
+  // Add event listener to delete button
+  deleteButton.addEventListener("click", () => {
+    newPlaylist.remove();
+    updatePlaylists();
+  });
+
+  // Append elements to newPlaylist
+  newPlaylist.appendChild(playlistText);
+  newPlaylist.appendChild(playlistButton);
+  newPlaylist.appendChild(deleteButton);
+
+  // Append the new playlist to the side-components container
+  document.querySelector(".side-components").appendChild(newPlaylist);
+
+  updatePlaylists();
+}
+
+// Initialize three playlists by default
+document.addEventListener("DOMContentLoaded", () => {
+  for (let i = 1; i <= 3; i++) {
+    createNewPlaylist(i);
+  }
+});
+
+document.querySelector("#plusSymbol").addEventListener("click", () => {
+  // Calculate the number of existing playlists
+  let existingPlaylists = document.querySelectorAll(".create-playlist").length;
+
+  // Create a new playlist
+  createNewPlaylist(existingPlaylists + 1);
+});
+
+function updatePlaylists() {
+  // Update all playlist names dynamically
+  let playlists = document.querySelectorAll(".create-playlist");
+  playlists.forEach((playlist, index) => {
+    let spanText = playlist.querySelector(".playlist-text span");
+    spanText.textContent = `New Playlist ${index + 1}`;
+  });
+}
+
+
+
 
 
 
